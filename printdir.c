@@ -26,7 +26,7 @@ void printdir(char *dir, int depth) {
             /* Recurse at a new indent level */
             printdir(entry->d_name, depth+4);
         } else {
-            if(entry->d_name[0] == '.'){ continue; }
+            if(entry->d_name[0] == '.') continue; 
             printf("%*s%s\n",depth,"",entry->d_name);
         }
     }
