@@ -10,7 +10,8 @@ int testFunctCalled = 0;
 pthread_mutex_t tfcMutex;
 void* subprocSync(void* arg) {
 	const int callto = 20, maxSleep=10;
-	for(int i=0; i<callto; ++i) {
+        int i=0;
+	for(i=0; i<callto; ++i) {
 		test_funct(i+1);
 		pthread_mutex_lock(&tfcMutex);
 		++testFunctCalled;
@@ -24,18 +25,20 @@ void* subprocSync(void* arg) {
 }
 
 int main(int argc, char* argv[]) {
-	printf("Lab-9, 2011136084 Lee Do-hyung\n");
+	printf("Lab-9, 2013180035 Kim Ha Neul\n");
 	pthread_mutex_init(&tfcMutex, NULL);
 	pthread_t threads[EXECTO];
-	for(int i=0; i<EXECTO; ++i) {
+        int i=0;
+	for(i=0; i<EXECTO; ++i) {
 		int res = pthread_create(&threads[i], NULL, subprocSync, NULL);
 		if(res!=0) {
 			printf("thread create failed. exit program...\n");
 			exit(EXIT_FAILURE);
 		}
 	}
-	for(int i=0; i<EXECTO; ++i) {
-		int res = pthread_join(threads[i], NULL);
+        int ii=0;
+	for(ii=0; ii<EXECTO; ++ii) {
+		int res = pthread_join(threads[ii], NULL);
 		if(res!=0) {
 			printf("thread join failed. exit program...\n");
 			exit(EXIT_FAILURE);

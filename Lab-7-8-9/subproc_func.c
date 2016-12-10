@@ -15,7 +15,8 @@ int test_funct(int count) {
 
 void subproc_func(int callto, int maxSleep)
 {
-	for(int i=0; i<callto; ++i) {
+    int i=0;
+	for(i=0; i<callto; ++i) {
 		test_funct(i+1);
 		if(i+1!=callto) {
 			int s = (rand()%maxSleep)+1;

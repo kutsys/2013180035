@@ -15,3 +15,6 @@ subproc : subproc.c subproc_func.o subproc_func.h
 
 subproc_func.o : subproc_func.c
 	gcc -Wall -c -o subproc_func.o subproc_func.c
+
+clean :
+	rm *.o mproc3 mproc2 mproc1 subproc

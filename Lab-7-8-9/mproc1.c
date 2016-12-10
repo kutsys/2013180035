@@ -9,17 +9,19 @@
 pid_t childPid[EXECTO];
 void killChild(int sig) {
 	printf("Terminated.\n");
-	for(int i=0; i<EXECTO; ++i)
+        int i=0;
+	for(i=0; i<EXECTO; ++i)
 		kill(childPid[i], SIGTERM);
 	exit(0);
 }
 int main(int argc, char* argv[]) {
-	printf("Lab-7, 2011136084, Lee Do-hyung\n");
+	printf("Lab-7, 2013180035, Kim Ha Neul\n");
 	(void) signal(SIGTERM, killChild);
 	srand(time(NULL));
 	char seed[15];
 	pid_t pid;
-	for(int p=0; p<EXECTO; ++p) {
+        int p=0;
+	for(p=0; p<EXECTO; ++p) {
 		pid = fork();
 		rand();
 		if(pid==0) {
@@ -30,7 +32,8 @@ int main(int argc, char* argv[]) {
 			childPid[p] = pid;
 	}
 	int state_val;
-	for(int p=0; p<EXECTO; ++p)
+        int pp=0;
+	for(pp=0; pp<EXECTO; ++pp)
 		wait(&state_val);
 	printf("Finished (process)\n");
 	exit(0);

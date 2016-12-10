@@ -13,17 +13,19 @@ void* subprocThread(void* arg) {
 }
 
 int main(int argc, char* argv[]) {
-	printf("Lab-8, 2011136084 Lee Do-hyung\n");
+	printf("Lab-8, 2013180035 Kim Ha Neul\n");
 	srand(time(NULL));
 	pthread_t threads[EXECTO];
-	for(int i=0; i<EXECTO; ++i) {
+        int i=0;
+	for(i=0; i<EXECTO; ++i) {
 		int res = pthread_create(&threads[i], NULL, subprocThread, NULL);
 		if(res!=0) {
 			printf("thread create failed. exit program...\n");
 			exit(EXIT_FAILURE);
 		}
 	}
-	for(int i=0; i<EXECTO; ++i) {
+        int ii=0;
+	for(ii=0; ii<EXECTO; ++ii) {
 		int res = pthread_join(threads[i], NULL);
 		if(res!=0) {
 			printf("Thread join failed. exit program...\n");
