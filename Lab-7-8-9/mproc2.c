@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 	}
         int ii=0;
 	for(ii=0; ii<EXECTO; ++ii) {
-		int res = pthread_join(threads[i], NULL);
+		int res = pthread_join(threads[ii], NULL);
 		if(res!=0) {
 			printf("Thread join failed. exit program...\n");
 			exit(EXIT_FAILURE);
